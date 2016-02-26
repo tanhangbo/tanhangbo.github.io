@@ -120,14 +120,14 @@ function set_default_width() {
 	var handle_main = document.getElementById("info_window").style;
 	var handle_top = document.getElementById("info_window_top").style;
 	handle_main.width = "300px";
-	handle_top.width = "340px";
+	handle_top.width = "300px";
 }
 
 function set_extended_width() {
 	var handle_main = document.getElementById("info_window").style;
 	var handle_top = document.getElementById("info_window_top").style;
 	handle_main.width = "800px";
-	handle_top.width = "840px";
+	handle_top.width = "800px";
 }
 
 
