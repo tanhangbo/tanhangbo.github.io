@@ -34,16 +34,18 @@ for(var i=0;i<data_info.length;i++){
 	var content = data_info[i];//data_info[i][3];
 	addClickHandler(content,marker1);
 */
-
+	var marker;
 	/* Two ways to create marker */
-	var marker = new BMap.Marker(new BMap.Point(data_info[i][0],data_info[i][1]));
-	//var marker = addCustomMarker(new BMap.Point(data_info[i][0],data_info[i][1]));
+	if (data_info[i][3])
+		marker = addCustomMarker(new BMap.Point(data_info[i][0],data_info[i][1]));
+	else
+		marker = new BMap.Marker(new BMap.Point(data_info[i][0],data_info[i][1]));
 
 	var label = new BMap.Label(data_info[i][2],{offset:new BMap.Size(20,-10)});
 	marker.setLabel(label);
 	map.addOverlay(marker);               // 将标注添加到地图中
 	
-	var content = data_info[i];//data_info[i][3];
+	var content = data_info[i];
 	addClickHandler(content,marker);
 
 
@@ -80,7 +82,7 @@ function openInfo(content,e){
 }
 
 function addCustomMarker(point){  // 创建图标对象   
-	var myIcon = new BMap.Icon("1.png", new BMap.Size(100, 100), {    
+	var myIcon = new BMap.Icon("image/2.png", new BMap.Size(100, 100), {    
 	// 当标注显示在地图上时，其所指向的地理位置距离图标左上    
 	// 角各偏移10像素和25像素。您可以看到在本例中该位置即是   
    // 图标中央下端的尖角位置。    
