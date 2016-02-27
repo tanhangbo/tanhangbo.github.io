@@ -1,7 +1,7 @@
 
 
 var width_changed = 0;
-
+var pc_browser = 0;
 
 // 百度地图API功能	
 map = new BMap.Map("allmap");
@@ -24,8 +24,22 @@ var opts = {
 			title : "" , // 信息窗口标题
 			enableMessage:true//设置允许信息窗发送短息
 		   };
-		   
 
+var p = navigator.platform;
+if ((p.indexOf("Win") == 0) || (p.indexOf("Mac") == 0) ||
+       (1 == (p == "X11")) || (p.indexOf("Linux") == 0)) {
+	pc_browser = 1;
+} else {
+	pc_browser = 0;
+}
+		   
+if (pc_browser) {
+	document.getElementById("info_iframe").src = "info/杭州简介.html";
+} else {
+	document.getElementById("info_window_top").style.display = "none";
+	document.getElementById("info_window").style.display = "none";
+}
+   
 for(var i=0;i<data_info.length;i++){
 
 /*	
@@ -46,9 +60,9 @@ for(var i=0;i<data_info.length;i++){
 	map.addOverlay(marker);               // 将标注添加到地图中
 	
 	var content = data_info[i];
-	addClickHandler(content,marker);
-
-
+	
+	if (pc_browser)
+		addClickHandler(content,marker);
 
 }
 function addClickHandler(content,marker){
