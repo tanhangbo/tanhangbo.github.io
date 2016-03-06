@@ -96,11 +96,11 @@ function openInfo(content,e){
 }
 
 function addCustomMarker(point){  // 创建图标对象   
-	var myIcon = new BMap.Icon("image/2.png", new BMap.Size(100, 100), {    
+	var myIcon = new BMap.Icon("image/2.png", new BMap.Size(30, 30), {    
 	// 当标注显示在地图上时，其所指向的地理位置距离图标左上    
 	// 角各偏移10像素和25像素。您可以看到在本例中该位置即是   
    // 图标中央下端的尖角位置。    
-   offset: new BMap.Size(10, 25),    
+   offset: new BMap.Size(0, 0),    
 	});      
 	// 创建标注对象并添加到地图   
 	var marker = new BMap.Marker(point, {icon: myIcon});    
