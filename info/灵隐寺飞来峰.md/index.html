@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>欢迎访问</title>
+</head>
+
+<xmp id="md_content" theme="united" style="display:none;">
+</xmp>
+
+<body>
+	<script type="text/javascript">
+
+	var CurTitle = window.location.pathname;
+	CurTitle = CurTitle.replace("/info/", "");
+	CurTitle = CurTitle.replace("/index.html", "");
+	CurTitle = CurTitle.replace("/", "");
+	document.title = decodeURI(CurTitle);
+
+	function load_md(md_file) {
+		  var req = new XMLHttpRequest();
+		  req.onload = function() {
+			var xmpNode = document.getElementById('md_content');
+			xmpNode.appendChild(document.createTextNode(this.responseText));
+		  }
+		  req.open('GET', md_file, false);
+		  req.send();
+	}
+	
+	load_md("1.md")
+	</script>
+	<script src="../../strapdown/strapdown.js"></script>
+ </body>
+</html>
