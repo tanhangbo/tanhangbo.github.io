@@ -11,7 +11,7 @@
 <body>
 	<script type="text/javascript">
 
-	document.title = window.location.pathname;
+	document.title = decodeURI(window.location.pathname);
 
 	function load_md(md_file) {
 		  var req = new XMLHttpRequest();
