@@ -77,9 +77,12 @@ function openInfo(content,e){
 	//document.getElementById("info_window").innerHTML = info_content;
 	
 	set_default_width();
-	if (content[3])
+	if (content[3].indexOf(".md") > 0)
+		document.getElementById("info_iframe").src = "info/" + content[3] + "/index.html";
+	else
 		document.getElementById("info_iframe").src = "info/" + content[3] + ".html";
 
+	
 /*	
 	var p = e.target;
 	opts.title = "<b>" + content[2] + "</b>";

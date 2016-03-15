@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+</head>
+
+<xmp id="md_content" theme="united" style="display:none;">
+</xmp>
+
+<body>
+	<script type="text/javascript">
+	function load_md(md_file) {
+		  var req = new XMLHttpRequest();
+		  req.onload = function() {
+			var xmpNode = document.getElementById('md_content');
+			xmpNode.appendChild(document.createTextNode(this.responseText));
+		  }
+		  req.open('GET', md_file, false);
+		  req.send();
+	}
+	
+	load_md("1.md")
+	</script>
+	<script src="http://strapdownjs.com/v/0.2/strapdown.js"></script>
+ </body>
+</html>
