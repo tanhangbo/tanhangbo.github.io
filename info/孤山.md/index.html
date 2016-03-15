@@ -2,6 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
+<title>欢迎访问</title>
 </head>
 
 <xmp id="md_content" theme="united" style="display:none;">
@@ -9,6 +10,9 @@
 
 <body>
 	<script type="text/javascript">
+
+	document.title = window.location.pathname;
+
 	function load_md(md_file) {
 		  var req = new XMLHttpRequest();
 		  req.onload = function() {
