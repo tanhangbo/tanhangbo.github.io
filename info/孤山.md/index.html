@@ -11,7 +11,11 @@
 <body>
 	<script type="text/javascript">
 
-	document.title = decodeURI(window.location.pathname);
+	var CurTitle = window.location.pathname;
+	CurTitle = CurTitle.replace("/info/", "");
+	CurTitle = CurTitle.replace("/index.html", "");
+	CurTitle = CurTitle.replace("/", "");
+	document.title = decodeURI(CurTitle);
 
 	function load_md(md_file) {
 		  var req = new XMLHttpRequest();
