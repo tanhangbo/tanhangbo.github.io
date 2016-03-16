@@ -60,9 +60,8 @@ for(var i=0;i<data_info.length;i++){
 	map.addOverlay(marker);               // 将标注添加到地图中
 	
 	var content = data_info[i];
-	
-	if (pc_browser)
-		addClickHandler(content,marker);
+
+	addClickHandler(content,marker);
 
 }
 function addClickHandler(content,marker){
@@ -76,12 +75,18 @@ function openInfo(content,e){
 
 	//document.getElementById("info_window").innerHTML = info_content;
 	
-	set_default_width();
-	if (content[3].indexOf(".md") > 0)
-		document.getElementById("info_iframe").src = "info/" + content[3] + "/index.html";
-	else
-		document.getElementById("info_iframe").src = "info/" + content[3] + ".html";
+	if (pc_browser) {
 
+		set_default_width();
+		if (content[3].indexOf(".md") > 0)
+			document.getElementById("info_iframe").src = "info/" + content[3] + "/index.html";
+		else
+			document.getElementById("info_iframe").src = "info/" + content[3] + ".html";
+	} else{
+		if (content[3].indexOf(".md") > 0) {
+			window.location.href  = "info/" + content[3] + "/index.html";
+		}
+	}
 	
 /*	
 	var p = e.target;
